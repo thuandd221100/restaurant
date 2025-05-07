@@ -1,6 +1,7 @@
 package com.example.be_restaurant.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -20,6 +21,21 @@ public class User {
     @NotBlank(message = "Vui lòng nhập username")
     private String username;
 
-    @Column
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "fullName")
+    private String fullName;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+    public enum Role {
+        ADMIN,
+        EMPLOYEE
+    }
+
+    @Column(name = "status")
+    private Boolean status;
 }

@@ -5,17 +5,19 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name = "role")
+@Table(name = "payment")
 @Getter
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Role {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "name")
+    private String name;
 
+    @Column(name = "status")
+    private Boolean status;
 }
